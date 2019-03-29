@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Blog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<h1>New Article</h1>
+<%#= form_with scope: :article, local: true do |form| %>
+  <%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
